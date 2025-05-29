@@ -1,0 +1,30 @@
+﻿<div class="container px-4 mt-4">
+    <h2 class="text-center text-uppercase fw-bold" style="letter-spacing: 3px;">
+        Add New Note
+    </h2>
+</div>
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-8">
+        <form method="post">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" id="title" class="form-control" placeholder="Enter a title" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea name="content" id="content" class="form-control" rows="5" placeholder="Write your note..." required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="tags" class="form-label">Tags</label>
+                <input type="text" name="tags" id="tags" class="form-control" placeholder="e.g. work, ideas" />
+            </div>
+
+            <div class="text-end">
+                <input type="submit" value="Create Note" class="btn btn-primary px-4" />
+            </div>
+        </form>
+    </div>
+</div>

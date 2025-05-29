@@ -1,0 +1,65 @@
+﻿@model List<Note>
+@{
+    ViewData["Title"] = "All Notes";
+}
+
+<div class="container mt-4">
+    <!-- Add Note Button -->
+    <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#noteModal">
+        + Add New Note
+    </button>
+
+    <!-- Notes Display Section -->
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        @foreach (var note in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@note.title</h5>
+                        <p class="card-text text-muted" style="max-height: 100px; overflow: hidden;">
+                            @Html.Raw(note.content.Length > 150 ? note.content.Substring(0, 150) + "..." : note.content)
+                        </p>
+                        <p><small class="text-secondary">@note.tags</small></p>
+
+                        <a asp-action="Details" asp-controller="Note" asp-route-id="@note.Id" class="btn btn-sm btn-outline-primary">View</a>
+                        <a asp-action="Edit" asp-controller="Note" asp-route-id="@note.Id" class="btn btn-sm btn-outline-secondary">Edit</a>
+                        <a asp-action="DeleteParmission" asp-controller="Note" asp-route-id="@note.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Bootstrap Modal for Adding Notes -->
+<div class="modal fade" id="noteModal" tabindex="-1" aria-labelledby="noteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form method="post" asp-action="Create">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="noteModalLabel">Create New Note</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        <input type="text" name="Title" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Content</label>
+                        <textarea name="Content" id="editor" class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tags</label>
+                        <input type="text" name="Tags" class="form-control" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save Note</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

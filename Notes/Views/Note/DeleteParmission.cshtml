@@ -1,0 +1,22 @@
+﻿@model Note
+<div class="container-fluid px-4">
+	<h2 class="mt-4 text-center text-uppercase text-danger" style="letter-spacing:4px">
+		Are You Sure Want to Delete this?
+	</h2>
+</div>
+<div class="row">
+	<div class="col-md-2"></div>
+		<div class="col-md-8">
+		<ul class="list-group">
+			<li class="list-group-item">Note Id: @Model.Id</li>
+			<li class="list-group-item">Note Title: @Model.title</li>
+			<li class="list-group-item">Note Content: @Model.content</li>
+			<li class="list-group-item">Note Tags: @Model.tags</li>
+		</ul>
+		<div class="text-center mt-4">
+			
+			<a class="btn btn-danger" asp-action="DeleteConfirmed" asp-route-id="@Model.Id">Delete</a>
+			<a class="btn btn-primary" asp-action="Index">Back to Notes</a>
+		</div>
+	<div class="col-md-2"></div>
+</div>
