@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Notes.Data;
 using Notes.Models;
 
@@ -6,6 +7,7 @@ namespace Notes.Controllers
 {
     public class NoteController : Controller
     {
+        
         private readonly ApplicationDbContext _context;
        
         public NoteController(ApplicationDbContext context)
