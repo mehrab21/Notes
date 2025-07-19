@@ -1,0 +1,22 @@
+﻿@model Notes.Models.User
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container mt-5">
+    <h2>User Profile</h2>
+    <div class="card shadow-sm mt-4 p-4">
+        <div class="mb-3">
+			<strong>Name:</strong>@Model.Name
+        </div>
+        <div class="mb-3">
+            <strong>Email:</strong> @Model.Email
+        </div>
+        <div class="mb-3">
+            <strong>Address:</strong> @Model.adress
+        </div>
+
+        <a class="btn btn-primary" asp-controller="Note" asp-action="ProfileEdit" asp-route-id="@Model.Id">Edit Profile</a>
+        <a class="btn btn-warning mt-2" asp-controller="Note" asp-action="Index">Back To Index</a>
+    </div>
+</div>

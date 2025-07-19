@@ -55,6 +55,12 @@ namespace Notes.Controllers
                 return View();
             }
         }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("login_session");
+            HttpContext.Session.Remove("login_email");
+            return RedirectToAction("Login");
+        }
         public IActionResult Registration()
         {
             return View();
@@ -132,6 +138,42 @@ namespace Notes.Controllers
         public IActionResult Details(int id)
         {
             return View(_context.notes.Find(id));
+        }
+        public IActionResult Profile()
+        {
+            string check = HttpContext.Session.GetString("login_session");
+            int isdr = int.Parse(check);
+            var user = _context.users.Find(isdr);   
+            return View(user);
+        }
+        public IActionResult ProfileEdit(int id)
+        {
+            var user = _context.users.Find(id);
+            string check = HttpContext.Session.GetString("login_session");
+            int isdr = int.Parse(check);
+            if (user == null || user.Id != isdr)
+            {
+                return NotFound();
+            }
+            return View(user);
+
+        }
+        [HttpPost]
+        public IActionResult ProfileEdit(User user)
+        {
+            string check = HttpContext.Session.GetString("login_session");
+            int isdr = int.Parse(check);
+            if (user.Id != isdr)
+            {
+                return NotFound();
+            }
+            user.Id = isdr; // Ensure the UserId is set to the logged-in user's ID
+            _context.users.Update(user);
+            _context.SaveChanges();
+            HttpContext.Session.SetString("login_name", user.Name);
+            HttpContext.Session.SetString("login_email", user.Email);
+            HttpContext.Session.SetString("login_address", user.adress);
+            return RedirectToAction("Profile");
         }
     }
 }
