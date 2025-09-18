@@ -15,13 +15,15 @@ It provides full CRUD functionality for managing personal notes with secure auth
 
 ---
 
+
 ## 📸 Screenshots
 
 ### 🔑 Login Page
-![Login Page]([assets/noteloginpage.jpg](https://github.com/mehrab21/Notes/blob/master/Notes/wwwroot/assets/noteloginpage.jpg))
+![Login Page](https://raw.githubusercontent.com/mehrab21/Notes/master/Notes/wwwroot/assets/noteloginpage.jpg)
 
 ### 🏠 Home / Notes View
-![Home View]([assets/noteview.jpg](https://github.com/mehrab21/Notes/blob/master/Notes/wwwroot/assets/noteview.jpg))
+![Home View](https://raw.githubusercontent.com/mehrab21/Notes/master/Notes/wwwroot/assets/noteview.jpg)
+
 
 ---
 
