@@ -18,10 +18,10 @@ It provides full CRUD functionality for managing personal notes with secure auth
 ## 📸 Screenshots
 
 ### 🔑 Login Page
-![Login Page](assets/noteloginpage.png)
+![Login Page](assets/noteloginpage.jpg)
 
 ### 🏠 Home / Notes View
-![Home View](assets/noteview.png)
+![Home View](assets/noteview.jpg)
 
 ---
 
